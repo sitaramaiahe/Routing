@@ -1,0 +1,45 @@
+﻿<body>
+    <div class="container">
+        <div class='row'>
+            <div class='col-xs-12'>
+                <h2>Ultimate Bussiness Owner</h2>
+                <form [formGroup]="uboForm" (ngSubmit)="uboForm.valid && submitRegistration(uboForm.value)" novalidate>
+
+                    
+
+                    <fieldset class="form-group">
+                        <label for="lblEIN">EIN</label>
+                        <input type="text" class="form-control" placeholder="EIN" formControlName="EIN">
+                        <div class="form-text error" *ngIf="uboForm.controls.EIN.touched">
+                            <div *ngIf="uboForm.controls.EIN.hasError('required')">EIN is required.</div>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Entity Name</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <td>rtb000345</td>
+                                    <td>InProcess</td>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <td>rtb000346</td>
+                                    <td>Completed</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class='btn btn-primary' type='submit' [disabled]='!uboForm.valid'>Search</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>
